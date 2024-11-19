@@ -18,15 +18,17 @@
         <table class="table table-bordered table-striped table-hover">
             <!--Table Header-->
             <tr class="d-flex">
-                <th class="text-center col-3">Name</th>
-                <th class="col-6">Description</th>
-                <th class="text-center col-3">Deadline</th>
+                <th class="text-center col-3">Excercise</th>
+                <th class="text-center col-3">Sets</th>
+                <th class="text-center col-3">Reps</th>
+                <th class="text-center col-3">PRweight</th>
             </tr>
-            <% for(let count = 0; count < TaskList.length; count++) { %>
+            <% for(let count = 0; count < WorkoutList.length; count++) { %>
             <tr class="d-flex">
-                <td class="text-center col-3"><%= TaskList[count].Name %></td>
-                <td class="col-6"><%= TaskList[count].Description %></td>
-                <td class="text-center col-3"><%= TaskList[count].Deadline %></td>
+                <td class="text-center col-3"><%= WorkoutList[count].Exercise %></td>
+                <td class="text-center col-3"><%= WorkoutList[count].Sets %></td>
+                <td class="text-center col-3"><%= WorkoutList[count].Reps %></td>
+                <td class="text-center col-3"><%= WorkoutList[count].PRweight %></td>
             </tr>
             <% } %>
         </table>

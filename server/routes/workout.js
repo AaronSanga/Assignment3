@@ -1,49 +1,49 @@
 var express = require('express');
 var router = express.Router();
-let Task = require('../model/task');
+let Workout = require('../model/workout');
 
 router.get('/', async (req, res, next) => {
     try {
-        const TaskList = await Task.find();
+        const WorkoutList = await Workout.find();
         res.render('index', {
             title: 'Home',
-            TaskList: TaskList
+            WorkoutList: WorkoutList
         });
     } catch (err) {
         console.error(err);
         res.render('index', {
             error: 'Error on Server',
-            TaskList: []
+            WorkoutList: []
         });
     }
 });
 
 router.get('/home', async (req, res, next) => {
     try {
-        const TaskList = await Task.find();
+        const WorkoutList = await Workout.find();
         res.render('index', {
             title: 'Home',
-            TaskList: TaskList
+            WorkoutList: WorkoutList
         });
     } catch (err) {
         console.error(err);
         res.render('index', {
             error: 'Error on Server',
-            TaskList: []
+            WorkoutList: []
         });
     }
 });
 
-router.get('/tasklist', async (req, res, next) => {
+router.get('/workoutlist', async (req, res, next) => {
     try {
-        const TaskList = await Task.find();
-        res.render('Task/list', {
-            title: 'Tasks',
-            TaskList: TaskList
+        const WorkoutList = await Workout.find();
+        res.render('Workout/list', {
+            title: 'Workouts',
+            WorkoutList: WorkoutList
         });
     } catch (err) {
         console.error(err);
-        res.render('Task/list', {
+        res.render('Workout/list', {
             error: 'Error on Server'
         });
     }
@@ -51,31 +51,32 @@ router.get('/tasklist', async (req, res, next) => {
 /*Create Operation */
 router.get('/add',async(req,res,next)=>{
     try{
-        res.render('Task/add',{
-            title: 'Add Task'
+        res.render('Workout/add',{
+            title: 'Add Workout'
         })
     }
     catch(err){
         console.error(err)
-        res.render('Task/list',{
+        res.render('Workout/list',{
             error:'Error on Server'})
     }
 });
 /*Create Operation */
 router.post('/add',async(req,res,next)=>{
     try{
-        let newTask = Task({
-            "Name":req.body.Name,
-            "Description":req.body.Description,
-            "Deadline":req.body.Deadline
+        let newWorkout = Workout({
+            "Exercise":req.body.Exercise,
+            "Sets":req.body.Sets,
+            "Reps":req.body.Reps,
+            "PRweight":req.body.PRweight
         })
-        Task.create(newTask).then(()=>{
-            res.redirect('/tasklist')
+        Workout.create(newWorkout).then(()=>{
+            res.redirect('/workoutlist')
         })
     }
     catch(err){
         console.error(err)
-        res.render('Task/list',{
+        res.render('Workout/list',{
             error:'Error on Server'})
     }
 });
@@ -83,10 +84,10 @@ router.post('/add',async(req,res,next)=>{
 router.get('/edit/:id',async(req,res,next)=>{
     try{
         const id = req.params.id;
-        const TaskToEdit=await Task.findById(id);
-        res.render('Task/edit',{
-            title: 'Edit Task',
-            Task:TaskToEdit
+        const WorkoutToEdit=await Workout.findById(id);
+        res.render('Workout/edit',{
+            title: 'Edit Workout',
+            Workout:WorkoutToEdit
         })
     }
     catch{
@@ -98,19 +99,20 @@ router.get('/edit/:id',async(req,res,next)=>{
 router.post('/edit/:id',async(req,res,next)=>{
     try{
         let id= req.params.id;
-        let updatedTask = Task({
+        let updatedWorkout = Workout({
             "_id":id,
-            "Name":req.body.Name,
-            "Description":req.body.Description,
-            "Deadline":req.body.Deadline
+            "Exercise":req.body.Exercise,
+            "Sets":req.body.Sets,
+            "Reps":req.body.Reps,
+            "PRweight":req.body.PRweight
         })
-        Task.findByIdAndUpdate(id,updatedTask).then(()=>{
-            res.redirect('/tasklist')
+        Workout.findByIdAndUpdate(id,updatedWorkout).then(()=>{
+            res.redirect('/workoutlist')
         })
     }
     catch(err){
         console.error(err)
-        res.render('Task/list',{
+        res.render('Workout/list',{
             error:'Error on Server'})
     }
 });
@@ -118,13 +120,13 @@ router.post('/edit/:id',async(req,res,next)=>{
 router.get('/delete/:id',(req,res,next)=>{
     try{
         let id=req.params.id;
-        Task.deleteOne({_id:id}).then(()=>{
-            res.redirect('/tasklist')
+        Workout.deleteOne({_id:id}).then(()=>{
+            res.redirect('/workoutlist')
         })
     }
     catch{
         console.error(err)
-        res.render('Task/list',{
+        res.render('Workout/list',{
             error:'Error on Server'})
     }
 });
