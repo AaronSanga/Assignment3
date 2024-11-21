@@ -1,16 +1,15 @@
 <%- include Partials/header.ejs %>
 <%- include Partials/main_nav.ejs %>
-<main class="container">
-  <h1>Welcome!</h1>
-  <p>
-    Hello
-  </p>
+<main role="main" class="inner cover">
+  <p>CSS Used from Bootstrap "Cover" Example Sheet</p>
+  <h1 class="cover-heading">Welcome.</h1>
+  <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
   <div class="row">
-    <div class="offset-md-1 col-md-10">
+    <div class="col-md-10">
         <table class="table table-bordered table-striped table-hover">
-            <!--Table Header-->
+            <!-- Table Header -->
             <tr class="d-flex">
-                <th class="text-center col-3">Excercise</th>
+                <th class="text-center col-3">Exercise</th>
                 <th class="text-center col-3">Sets</th>
                 <th class="text-center col-3">Reps</th>
                 <th class="text-center col-3">PRweight</th>
@@ -26,5 +25,8 @@
         </table>
       </div>
   </div>
-</main> 
+  <p class="lead">
+    <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+  </p>
+</main>
 <%- include Partials/footer.ejs %>

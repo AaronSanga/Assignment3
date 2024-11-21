@@ -1,12 +1,14 @@
 <%- include ../Partials/header.ejs %>
 <%- include ../Partials/main_nav.ejs %>
-<main class="container">
+<main role="main" class="inner cover">
     <div class="row">
         <div class="offset-md-1 col-md-10">
             <h1><%= title %></h1>
             <br>
             <a href="/add" class="btn btn-primary" role="button"> Add Workouts
             </a>
+        </div>
+        <div class="offset-md-1 col-md-10">
             <table class="table table-bordered table-striped table-hover">
                 <tr class="d-flex">
                     <th class="text-center col-2">Exercise</th>
@@ -27,8 +29,8 @@
                     </td>
                 </tr>
                 <% } %>
-            </table>            
-        </div>
+            </table> 
+        </div>           
     </div>
 </main> 
 <%- include ../Partials/footer.ejs %>
