@@ -13,17 +13,17 @@
                 <div class="form-group">
                     <label for="setTextField">Sets Performed</label>
                     <input type="number" class="form-control" id="setTextField" 
-                    placeholder="Enter the amount of sets" name="Sets" value="<%= Workout.Sets %>" required>
+                    placeholder="Enter the amount of sets performed" name="Sets" value="<%= Workout.Sets %>" required>
                 </div>
                 <div class="form-group">
                     <label for="repTextField">Reps Performed</label>
                     <input type="number" class="form-control" id="repTextField"
-                    placeholder="Enter the amount of reps" name="Reps" value="<%= Workout.Reps %>" required>
+                    placeholder="Enter the amount of reps performed" name="Reps" value="<%= Workout.Reps %>" required>
                 </div>
                 <div class="form-group">
                     <label for="PRTextField">PR Weight</label>
                     <input type="number" class="form-control" id="PRTextField"
-                    placeholder="Enter the amount of reps" name="Reps" value="<%= Workout.PRweight %>" required>
+                    placeholder="Enter your personal record weight" name="PRweight" value="<%= Workout.PRweight %>" required>
                 </div>
                 <button class="btn btn-primary" type="submit">Submit <i class="fas fa-edit"></i></button>
                 <button class="btn btn-warning" type="button" onclick="window.location.href='/workoutlist'">Cancel <i class="fas fa-undo"></i></button>
